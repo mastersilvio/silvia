@@ -1,0 +1,12 @@
+<% content_for :title, "Editing grade" %>
+
+<h1>Editing grade</h1>
+
+<%= render "form", grade: @grade %>
+
+<br>
+
+<div>
+  <%= link_to "Show this grade", @grade %> |
+  <%= link_to "Back to grades", grades_path %>
+</div>

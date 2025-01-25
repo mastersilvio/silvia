@@ -1,0 +1,32 @@
+<%= form_with(model: permission) do |form| %>
+  <% if permission.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(permission.errors.count, "error") %> prohibited this permission from being saved:</h2>
+
+      <ul>
+        <% permission.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :profile_id, style: "display: block" %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div>
+    <%= form.label :active, style: "display: block" %>
+    <%= form.checkbox :active %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

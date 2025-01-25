@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @question_type %>
+
+<div>
+  <%= link_to "Edit this question type", edit_question_type_path(@question_type) %> |
+  <%= link_to "Back to question types", question_types_path %>
+
+  <%= button_to "Destroy this question type", @question_type, method: :delete %>
+</div>

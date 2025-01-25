@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: one
+  exam: one
+  user: one
+  answer: MyText
+  points: 9.99
+
+two:
+  question: two
+  exam: two
+  user: two
+  answer: MyText
+  points: 9.99

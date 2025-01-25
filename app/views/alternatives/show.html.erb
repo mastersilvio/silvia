@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @alternative %>
+
+<div>
+  <%= link_to "Edit this alternative", edit_alternative_path(@alternative) %> |
+  <%= link_to "Back to alternatives", alternatives_path %>
+
+  <%= button_to "Destroy this alternative", @alternative, method: :delete %>
+</div>

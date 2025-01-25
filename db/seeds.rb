@@ -7,3 +7,28 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Carrega todos os arquivos de seed em ordem específica
+[
+  'profiles',
+  'users',
+  'permissions',
+  'subjects',
+  'grades',
+  'topics',
+  'question_types'
+].each do |seed|
+  puts "Seeding #{seed}..."
+  require File.join(Rails.root, 'db', 'seeds', "#{seed}.rb")
+end
+
+puts "\nSeeds executados com sucesso!"
+puts "----------------------------------------"
+puts "Perfis criados: #{Profile.count}"
+puts "Usuários criados: #{User.count}"
+puts "Permissões criadas: #{Permission.count}"
+puts "Disciplinas criadas: #{Subject.count}"
+puts "Séries criadas: #{Grade.count}"
+puts "Tópicos criados: #{Topic.count}"
+puts "Tipos de questões criados: #{QuestionType.count}"
+puts "----------------------------------------"

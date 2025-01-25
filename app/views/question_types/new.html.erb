@@ -1,0 +1,11 @@
+<% content_for :title, "New question type" %>
+
+<h1>New question type</h1>
+
+<%= render "form", question_type: @question_type %>
+
+<br>
+
+<div>
+  <%= link_to "Back to question types", question_types_path %>
+</div>

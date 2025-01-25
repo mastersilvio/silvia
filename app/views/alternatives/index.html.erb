@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Alternatives" %>
+
+<h1>Alternatives</h1>
+
+<div id="alternatives">
+  <% @alternatives.each do |alternative| %>
+    <%= render alternative %>
+    <p>
+      <%= link_to "Show this alternative", alternative %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New alternative", new_alternative_path %>

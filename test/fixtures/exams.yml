@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  subject: one
+  topic: one
+  duration_in_minutes: 1
+  start_date: 2025-01-25 10:58:19
+  end_date: 2025-01-25 10:58:19
+  status: MyString
+  passing_score: 9.99
+  shuffle_questions: false
+
+two:
+  title: MyString
+  description: MyText
+  subject: two
+  topic: two
+  duration_in_minutes: 1
+  start_date: 2025-01-25 10:58:19
+  end_date: 2025-01-25 10:58:19
+  status: MyString
+  passing_score: 9.99
+  shuffle_questions: false

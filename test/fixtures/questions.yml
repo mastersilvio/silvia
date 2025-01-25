@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  question_type: one
+  difficulty_level: 1
+  points: 9.99
+  explanation: MyText
+  active: false
+
+two:
+  content: MyText
+  question_type: two
+  difficulty_level: 1
+  points: 9.99
+  explanation: MyText
+  active: false

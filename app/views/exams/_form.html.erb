@@ -1,0 +1,67 @@
+<%= form_with(model: exam) do |form| %>
+  <% if exam.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+        <% exam.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.textarea :description %>
+  </div>
+
+  <div>
+    <%= form.label :subject_id, style: "display: block" %>
+    <%= form.text_field :subject_id %>
+  </div>
+
+  <div>
+    <%= form.label :topic_id, style: "display: block" %>
+    <%= form.text_field :topic_id %>
+  </div>
+
+  <div>
+    <%= form.label :duration_in_minutes, style: "display: block" %>
+    <%= form.number_field :duration_in_minutes %>
+  </div>
+
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.datetime_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date, style: "display: block" %>
+    <%= form.datetime_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :passing_score, style: "display: block" %>
+    <%= form.text_field :passing_score %>
+  </div>
+
+  <div>
+    <%= form.label :shuffle_questions, style: "display: block" %>
+    <%= form.checkbox :shuffle_questions %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

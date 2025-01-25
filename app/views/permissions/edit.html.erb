@@ -1,0 +1,12 @@
+<% content_for :title, "Editing permission" %>
+
+<h1>Editing permission</h1>
+
+<%= render "form", permission: @permission %>
+
+<br>
+
+<div>
+  <%= link_to "Show this permission", @permission %> |
+  <%= link_to "Back to permissions", permissions_path %>
+</div>

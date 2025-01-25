@@ -1,0 +1,12 @@
+<% content_for :title, "Editing alternative" %>
+
+<h1>Editing alternative</h1>
+
+<%= render "form", alternative: @alternative %>
+
+<br>
+
+<div>
+  <%= link_to "Show this alternative", @alternative %> |
+  <%= link_to "Back to alternatives", alternatives_path %>
+</div>

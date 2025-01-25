@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Subjects" %>
+
+<h1>Subjects</h1>
+
+<div id="subjects">
+  <% @subjects.each do |subject| %>
+    <%= render subject %>
+    <p>
+      <%= link_to "Show this subject", subject %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New subject", new_subject_path %>

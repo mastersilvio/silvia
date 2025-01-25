@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Question types" %>
+
+<h1>Question types</h1>
+
+<div id="question_types">
+  <% @question_types.each do |question_type| %>
+    <%= render question_type %>
+    <p>
+      <%= link_to "Show this question type", question_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New question type", new_question_type_path %>
