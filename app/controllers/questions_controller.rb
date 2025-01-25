@@ -23,14 +23,33 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: "Question was successfully created." }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    # Gera o texto da questão usando a OpenAI
+    client = OpenAI::Client.new(access_token: ENV["OPENAI_ACCESS_TOKEN"])
+
+    prompt = <<~PROMPT
+      Crie uma questão de múltipla escolha sobre o seguinte tema: #{@question.topic.name}
+
+      A questão deve seguir este formato:
+      - Texto da questão
+      - 4 alternativas (A, B, C, D)
+      - Indicação da alternativa correta
+    PROMPT
+
+    response = client.chat(
+      parameters: {
+        model: "gpt-3.5-turbo",
+        messages: [ { role: "user", content: prompt } ],
+        temperature: 0.7,
+        max_tokens: 500
+      }
+    )
+
+    @question.content = response.dig("choices", 0, "message", "content")
+
+    if @question.save
+      redirect_to @question, notice: "Questão criada com sucesso!"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -60,11 +79,11 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params.expect(:id))
+      @question = Question.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.expect(question: [ :content, :question_type_id, :difficulty_level, :points, :explanation, :active ])
+      params.require(:question).permit(:topic_id, :subject_id, :difficulty_level)
     end
 end
