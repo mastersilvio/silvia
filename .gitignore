@@ -36,3 +36,7 @@
 # Docker
 .docker-sync/
 docker-compose.override.yml
+
+# Ignore temporary bundler files
+.bundle/
+vendor/bundle/
