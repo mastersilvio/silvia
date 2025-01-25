@@ -23,6 +23,9 @@ services:
       DATABASE_URL: postgres://postgres:password@db:5432/app_development
       CABLE_DATABASE_URL: postgres://postgres:password@db:5432/app_development
       RAILS_ENV: development
+      OPENAI_ACCESS_TOKEN: ${OPENAI_ACCESS_TOKEN}
+    env_file:
+      - .env
 
 volumes:
   postgres_data:

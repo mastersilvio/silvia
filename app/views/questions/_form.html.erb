@@ -35,15 +35,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :question_type_id %>
+    <%= form.collection_select :question_type_id, QuestionType.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :difficulty_level, "Nível de Dificuldade" %>
     <%= form.select :difficulty_level,
-        options_for_select([
-          ["Fácil", "easy"],
-          ["Médio", "medium"],
-          ["Difícil", "hard"]
-        ]),
+        Question::DIFFICULTY_LEVELS.map { |level| [level, level] },
         { prompt: "Selecione o nível de dificuldade" },
-        required: true %>
+        { required: true } %>
   </div>
 
   <div class="actions">

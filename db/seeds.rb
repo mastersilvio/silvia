@@ -32,3 +32,9 @@ puts "Séries criadas: #{Grade.count}"
 puts "Tópicos criados: #{Topic.count}"
 puts "Tipos de questões criados: #{QuestionType.count}"
 puts "----------------------------------------"
+
+QuestionType.create([
+  { name: 'Múltipla Escolha' },
+  { name: 'Verdadeiro ou Falso' },
+  { name: 'Dissertativa' }
+])

@@ -24,7 +24,9 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     # Gera o texto da questão usando a OpenAI
-    client = OpenAI::Client.new(access_token: ENV["OPENAI_ACCESS_TOKEN"])
+    client = OpenAI::Client.new(
+      access_token: ENV["OPENAI_ACCESS_TOKEN"]
+    )
 
     prompt = <<~PROMPT
       Crie uma questão de múltipla escolha sobre o seguinte tema: #{@question.topic.name}
@@ -84,6 +86,11 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.require(:question).permit(:topic_id, :subject_id, :difficulty_level)
+      params.require(:question).permit(
+        :topic_id,
+        :subject_id,
+        :difficulty_level,
+        :question_type_id
+      )
     end
 end
