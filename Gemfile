@@ -38,7 +38,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # OpenAI API client for Ruby
-gem "ruby-openai", "~> 6.3.0"
+gem "ruby-openai", "~> 7.3.1"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
